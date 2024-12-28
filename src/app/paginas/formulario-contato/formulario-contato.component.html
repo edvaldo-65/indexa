@@ -2,14 +2,14 @@
   <header>
     <section class="cabecalho-link">
       <img src="../../../assets/logo.png" alt="Logo">
-    </section>
 
-    <div>
-      <button>
-        <img class="seta" src="assets/arrow-left.png" alt="">
-        <a routerLink="/lista-contatos">Voltar</a>
-      </button>
-    </div>
+      <div>
+        <button>
+          <img class="seta" src="assets/arrow-left.png" alt="">
+          <a routerLink="/lista-contatos">Voltar</a>
+        </button>
+      </div>
+    </section>
 
     <section class="cabecalho-contato">
       <img src="../../../assets/adicionar-contato.png" alt="Adicionar Contato">
@@ -65,11 +65,12 @@
 
     <section class="botoes">
       <button class="botao-cancelar" type="button" (click)="cancelar()">Cancelar</button>
-      <button
-          [disabled]="contatoForm.invalid"
-          [ngClass]="contatoForm.valid ? 'botao-salvar' : 'botao-desablitado'"
-          type="submit">
-          Salvar Contato
+      <button 
+        [disabled]="contatoForm.invalid" 
+        [ngClass]="contatoForm.valid ? 'botao-salvar' : 'botao-desabilitado'"
+        type="submit"
+      >
+        Salvar Contato
       </button>
     </section>
   </form>

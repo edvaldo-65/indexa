@@ -128,7 +128,7 @@ input:focus {
   justify-content: space-between;
 }
 
-.botao-cancelar, .botao-salvar, .botao-desabilitado {
+.botao-cancelar, .botao-desabilitado, .botao-salvar {
   width: 196px;
   height: 41px;
   padding: 6px, 12px;
