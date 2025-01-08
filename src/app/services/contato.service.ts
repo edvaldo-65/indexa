@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Contato } from '../interfaces/iContato';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,10 @@ import { Observable } from 'rxjs/internal/Observable';
 export class ContatoService {
   private readonly API = 'http://localhost:3000/contatos';
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private activatedRoute: ActivatedRoute
+  ) {
 
   }
 
@@ -20,4 +24,28 @@ export class ContatoService {
   salvarContatos(contato: Contato) {
     return this.http.post<Contato>(this.API, contato)
   }
+
+  buscarPorId(id: number): Observable<Contato> {
+    const url = `${this.API}/${id}`
+    return this.http.get<Contato>(url)
+  }
+
+  excluirContato(id: number): Observable<Contato> {
+    const url = `${this.API}/${id}`
+    return this.http.delete<Contato>(url)
+  }
+
+  editarContato(contato: Contato): Observable<Contato> {
+    const url = `${this.API}/${contato.id}`
+    return this.http.put<Contato>(url, contato)
+  }
+
+  editarOuSalvarContato(contato: Contato): Observable<Contato> {
+    if (contato.id) {
+      return this.editarContato(contato)
+    } else {
+      return this.salvarContatos(contato)
+    }
+  }
+
 }

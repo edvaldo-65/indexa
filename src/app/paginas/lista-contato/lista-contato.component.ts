@@ -10,6 +10,7 @@ import { SeparadorComponent } from '../../componentes/separador/separador.compon
 import { FormularioContatoComponent } from '../formulario-contato/formulario-contato.component';
 import { ContatoService } from '../../services/contato.service';
 import { Contato } from '../../interfaces/iContato';
+import { PerfilContatoComponent } from "../perfil-contato/perfil-contato.component";
 
 @Component({
   selector: 'app-lista-contato',
@@ -23,7 +24,7 @@ import { Contato } from '../../interfaces/iContato';
     FormsModule,
     FormularioContatoComponent,
     RouterLink
-  ],
+],
   templateUrl: './lista-contato.component.html',
   styleUrl: './lista-contato.component.css'
 })
